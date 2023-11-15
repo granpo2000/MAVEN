@@ -5,18 +5,18 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
-import { OrderList } from "./order/OrderList";
-import { OrderCreate } from "./order/OrderCreate";
-import { OrderEdit } from "./order/OrderEdit";
-import { OrderShow } from "./order/OrderShow";
-import { CustomerList } from "./customer/CustomerList";
-import { CustomerCreate } from "./customer/CustomerCreate";
-import { CustomerEdit } from "./customer/CustomerEdit";
-import { CustomerShow } from "./customer/CustomerShow";
-import { AddressList } from "./address/AddressList";
-import { AddressCreate } from "./address/AddressCreate";
-import { AddressEdit } from "./address/AddressEdit";
-import { AddressShow } from "./address/AddressShow";
+import { PedidoList } from "./pedido/PedidoList";
+import { PedidoCreate } from "./pedido/PedidoCreate";
+import { PedidoEdit } from "./pedido/PedidoEdit";
+import { PedidoShow } from "./pedido/PedidoShow";
+import { ClienteList } from "./cliente/ClienteList";
+import { ClienteCreate } from "./cliente/ClienteCreate";
+import { ClienteEdit } from "./cliente/ClienteEdit";
+import { ClienteShow } from "./cliente/ClienteShow";
+import { EmailList } from "./email/EmailList";
+import { EmailCreate } from "./email/EmailCreate";
+import { EmailEdit } from "./email/EmailEdit";
+import { EmailShow } from "./email/EmailShow";
 import { ProductList } from "./product/ProductList";
 import { ProductCreate } from "./product/ProductCreate";
 import { ProductEdit } from "./product/ProductEdit";
@@ -48,25 +48,25 @@ const App = (): React.ReactElement => {
         loginPage={Login}
       >
         <Resource
-          name="Order"
-          list={OrderList}
-          edit={OrderEdit}
-          create={OrderCreate}
-          show={OrderShow}
+          name="Pedido"
+          list={PedidoList}
+          edit={PedidoEdit}
+          create={PedidoCreate}
+          show={PedidoShow}
         />
         <Resource
-          name="Customer"
-          list={CustomerList}
-          edit={CustomerEdit}
-          create={CustomerCreate}
-          show={CustomerShow}
+          name="Cliente"
+          list={ClienteList}
+          edit={ClienteEdit}
+          create={ClienteCreate}
+          show={ClienteShow}
         />
         <Resource
-          name="Address"
-          list={AddressList}
-          edit={AddressEdit}
-          create={AddressCreate}
-          show={AddressShow}
+          name="Email"
+          list={EmailList}
+          edit={EmailEdit}
+          create={EmailCreate}
+          show={EmailShow}
         />
         <Resource
           name="Product"

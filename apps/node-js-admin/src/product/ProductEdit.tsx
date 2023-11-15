@@ -10,7 +10,7 @@ import {
   SelectArrayInput,
 } from "react-admin";
 
-import { OrderTitle } from "../order/OrderTitle";
+import { PedidoTitle } from "../pedido/PedidoTitle";
 
 export const ProductEdit = (props: EditProps): React.ReactElement => {
   return (
@@ -21,11 +21,11 @@ export const ProductEdit = (props: EditProps): React.ReactElement => {
         <TextInput label="Name" source="name" />
         <ReferenceArrayInput
           source="orders"
-          reference="Order"
+          reference="Pedido"
           parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
-          <SelectArrayInput optionText={OrderTitle} />
+          <SelectArrayInput optionText={PedidoTitle} />
         </ReferenceArrayInput>
       </SimpleForm>
     </Edit>

@@ -20,8 +20,8 @@ import { ProductCountArgs } from "./ProductCountArgs";
 import { ProductFindManyArgs } from "./ProductFindManyArgs";
 import { ProductFindUniqueArgs } from "./ProductFindUniqueArgs";
 import { Product } from "./Product";
-import { OrderFindManyArgs } from "../../order/base/OrderFindManyArgs";
-import { Order } from "../../order/base/Order";
+import { PedidoFindManyArgs } from "../../pedido/base/PedidoFindManyArgs";
+import { Pedido } from "../../pedido/base/Pedido";
 import { ProductService } from "../product.service";
 @graphql.Resolver(() => Product)
 export class ProductResolverBase {
@@ -99,11 +99,11 @@ export class ProductResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => [Order], { name: "orders" })
+  @graphql.ResolveField(() => [Pedido], { name: "orders" })
   async resolveFieldOrders(
     @graphql.Parent() parent: Product,
-    @graphql.Args() args: OrderFindManyArgs
-  ): Promise<Order[]> {
+    @graphql.Args() args: PedidoFindManyArgs
+  ): Promise<Pedido[]> {
     const results = await this.service.findOrders(parent.id, args);
 
     if (!results) {

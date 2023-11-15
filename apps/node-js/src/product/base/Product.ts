@@ -19,7 +19,7 @@ import {
   ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { Order } from "../../order/base/Order";
+import { Pedido } from "../../pedido/base/Pedido";
 
 @ObjectType()
 class Product {
@@ -74,12 +74,12 @@ class Product {
 
   @ApiProperty({
     required: false,
-    type: () => [Order],
+    type: () => [Pedido],
   })
   @ValidateNested()
-  @Type(() => Order)
+  @Type(() => Pedido)
   @IsOptional()
-  orders?: Array<Order>;
+  orders?: Array<Pedido>;
 
   @ApiProperty({
     required: true,

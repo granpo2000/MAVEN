@@ -23,9 +23,9 @@ import { ProductWhereUniqueInput } from "./ProductWhereUniqueInput";
 import { ProductFindManyArgs } from "./ProductFindManyArgs";
 import { ProductUpdateInput } from "./ProductUpdateInput";
 import { Product } from "./Product";
-import { OrderFindManyArgs } from "../../order/base/OrderFindManyArgs";
-import { Order } from "../../order/base/Order";
-import { OrderWhereUniqueInput } from "../../order/base/OrderWhereUniqueInput";
+import { PedidoFindManyArgs } from "../../pedido/base/PedidoFindManyArgs";
+import { Pedido } from "../../pedido/base/Pedido";
+import { PedidoWhereUniqueInput } from "../../pedido/base/PedidoWhereUniqueInput";
 
 export class ProductControllerBase {
   constructor(protected readonly service: ProductService) {}
@@ -147,12 +147,12 @@ export class ProductControllerBase {
   }
 
   @common.Get("/:id/orders")
-  @ApiNestedQuery(OrderFindManyArgs)
+  @ApiNestedQuery(PedidoFindManyArgs)
   async findManyOrders(
     @common.Req() request: Request,
     @common.Param() params: ProductWhereUniqueInput
-  ): Promise<Order[]> {
-    const query = plainToClass(OrderFindManyArgs, request.query);
+  ): Promise<Pedido[]> {
+    const query = plainToClass(PedidoFindManyArgs, request.query);
     const results = await this.service.findOrders(params.id, {
       ...query,
       select: {
@@ -189,7 +189,7 @@ export class ProductControllerBase {
   @common.Post("/:id/orders")
   async connectOrders(
     @common.Param() params: ProductWhereUniqueInput,
-    @common.Body() body: OrderWhereUniqueInput[]
+    @common.Body() body: PedidoWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       orders: {
@@ -206,7 +206,7 @@ export class ProductControllerBase {
   @common.Patch("/:id/orders")
   async updateOrders(
     @common.Param() params: ProductWhereUniqueInput,
-    @common.Body() body: OrderWhereUniqueInput[]
+    @common.Body() body: PedidoWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       orders: {
@@ -223,7 +223,7 @@ export class ProductControllerBase {
   @common.Delete("/:id/orders")
   async disconnectOrders(
     @common.Param() params: ProductWhereUniqueInput,
-    @common.Body() body: OrderWhereUniqueInput[]
+    @common.Body() body: PedidoWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       orders: {

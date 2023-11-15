@@ -17,7 +17,7 @@ import {
   IsNumber,
   ValidateNested,
 } from "class-validator";
-import { OrderCreateNestedManyWithoutProductsInput } from "./OrderCreateNestedManyWithoutProductsInput";
+import { PedidoCreateNestedManyWithoutProductsInput } from "./PedidoCreateNestedManyWithoutProductsInput";
 import { Type } from "class-transformer";
 
 @InputType()
@@ -57,15 +57,15 @@ class ProductCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => OrderCreateNestedManyWithoutProductsInput,
+    type: () => PedidoCreateNestedManyWithoutProductsInput,
   })
   @ValidateNested()
-  @Type(() => OrderCreateNestedManyWithoutProductsInput)
+  @Type(() => PedidoCreateNestedManyWithoutProductsInput)
   @IsOptional()
-  @Field(() => OrderCreateNestedManyWithoutProductsInput, {
+  @Field(() => PedidoCreateNestedManyWithoutProductsInput, {
     nullable: true,
   })
-  orders?: OrderCreateNestedManyWithoutProductsInput;
+  orders?: PedidoCreateNestedManyWithoutProductsInput;
 }
 
 export { ProductCreateInput as ProductCreateInput };

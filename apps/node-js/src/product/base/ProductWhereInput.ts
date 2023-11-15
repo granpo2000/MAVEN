@@ -16,7 +16,7 @@ import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
 import { FloatNullableFilter } from "../../util/FloatNullableFilter";
-import { OrderListRelationFilter } from "../../order/base/OrderListRelationFilter";
+import { PedidoListRelationFilter } from "../../pedido/base/PedidoListRelationFilter";
 
 @InputType()
 class ProductWhereInput {
@@ -66,15 +66,15 @@ class ProductWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => OrderListRelationFilter,
+    type: () => PedidoListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => OrderListRelationFilter)
+  @Type(() => PedidoListRelationFilter)
   @IsOptional()
-  @Field(() => OrderListRelationFilter, {
+  @Field(() => PedidoListRelationFilter, {
     nullable: true,
   })
-  orders?: OrderListRelationFilter;
+  orders?: PedidoListRelationFilter;
 }
 
 export { ProductWhereInput as ProductWhereInput };
